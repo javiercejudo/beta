@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <link
+    href="/blog/feed.xml"
+    rel="self"
+    type="application/atom+xml"
+  />
+  <link href="" rel="alternate" type="text/html" />
+  <updated>2022-08-29T01:37:01.311Z</updated>
+  <id>/blog/feed.xml</id>
+  <title type="html">Tech notes</title>
+  <entry>
+    <title type="html">Your ultimate frontend email validation</title>
+    <link
+      href="/blog/ultimate-frontend-email-validation/index.html"
+      rel="alternate"
+      type="text/html"
+      title="Your ultimate frontend email validation"
+    />
+    <published>2014-08-03T00:00:00+00:00</published>
+    <updated>2014-08-03T00:00:00+00:00</updated>
+    <id>/blog/ultimate-frontend-email-validation/index.html</id>
+    <content
+      type="html"
+      xml:base="/blog/ultimate-frontend-email-validation/index.html"
+      >&lt;p&gt;It is common practice to validate emails using complex regular expressions,
+but chances are they are all technically wrong. Frontend validation in general
+is great for letting users know of issues early, but it cannot come at the cost
+of rejecting valid input:&lt;&#x2F;p&gt;
+&lt;p&gt;Well, here is my attempt:&lt;&#x2F;p&gt;
+&lt;pre class&#x3D;&quot;hljs&quot;&gt;&lt;code&gt;(&lt;span class&#x3D;&quot;hljs-function&quot;&gt;&lt;span class&#x3D;&quot;hljs-keyword&quot;&gt;function&lt;&#x2F;span&gt; (&lt;span class&#x3D;&quot;hljs-params&quot;&gt;&lt;&#x2F;span&gt;) &lt;&#x2F;span&gt;{
+&lt;span class&#x3D;&quot;hljs-meta&quot;&gt;  &amp;#x27;use strict&amp;#x27;&lt;&#x2F;span&gt;;
+
+  &lt;span class&#x3D;&quot;hljs-keyword&quot;&gt;const&lt;&#x2F;span&gt; api &#x3D; {};
+
+  &lt;span class&#x3D;&quot;hljs-comment&quot;&gt;&#x2F;&#x2F; element needs to have type&#x3D;&amp;quot;email&amp;quot;&lt;&#x2F;span&gt;
+  api.isValidEmail &#x3D; &lt;span class&#x3D;&quot;hljs-function&quot;&gt;&lt;span class&#x3D;&quot;hljs-keyword&quot;&gt;function&lt;&#x2F;span&gt; (&lt;span class&#x3D;&quot;hljs-params&quot;&gt;element&lt;&#x2F;span&gt;) &lt;&#x2F;span&gt;{
+    &lt;span class&#x3D;&quot;hljs-comment&quot;&gt;&#x2F;&#x2F; leverage the Constraint Validation API when it is available&lt;&#x2F;span&gt;
+    &lt;span class&#x3D;&quot;hljs-keyword&quot;&gt;if&lt;&#x2F;span&gt; (&lt;span class&#x3D;&quot;hljs-keyword&quot;&gt;typeof&lt;&#x2F;span&gt; element.checkValidity &#x3D;&#x3D;&#x3D; &lt;span class&#x3D;&quot;hljs-string&quot;&gt;&amp;#x27;function&amp;#x27;&lt;&#x2F;span&gt;) {
+      &lt;span class&#x3D;&quot;hljs-keyword&quot;&gt;return&lt;&#x2F;span&gt; element.checkValidity();
+    }
+
+    &lt;span class&#x3D;&quot;hljs-comment&quot;&gt;&#x2F;&#x2F; otherwise, this is about the only regex&lt;&#x2F;span&gt;
+    &lt;span class&#x3D;&quot;hljs-comment&quot;&gt;&#x2F;&#x2F; that doesn&amp;#x27;t reject any valid email addresses&lt;&#x2F;span&gt;
+    &lt;span class&#x3D;&quot;hljs-keyword&quot;&gt;return&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;hljs-regexp&quot;&gt;&#x2F;@&#x2F;&lt;&#x2F;span&gt;.test(element.value);
+  };
+})();
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Please note that, at the time of writing, the Constraint Validation API has a
+willful violation of RFC 5322 with the following explanation:&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[RFC 5322] defines a syntax for e-mail addresses that is simultaneously
+too strict (before the &amp;quot;@&amp;quot; character), too vague (after the &amp;quot;@&amp;quot; character),
+and too lax (allowing comments, whitespace characters, and quoted strings
+in manners unfamiliar to most users) to be of practical use here.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;Source: &lt;a href&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;TR&#x2F;html5&#x2F;forms.html#valid-e-mail-address&quot;&gt;W3C E-mail state&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;That link also provides a regular &lt;code&gt;expression&lt;&#x2F;code&gt; that implements the
+current specification in case you really want to go down that road:&lt;&#x2F;p&gt;
+&lt;pre class&#x3D;&quot;hljs&quot;&gt;&lt;code&gt;&#x2F;^[a-zA-Z0-9.!#$%&amp;amp;&#39;*+\&#x2F;&#x3D;?^_&#x60;{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$&#x2F;;
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content
+    >
+    <author>
+      <name>Javier Cejudo</name>
+    </author>
+  </entry>
+  <entry>
+    <title type="html">Thoughts on the status of web development</title>
+    <link
+      href="/blog/thoughts-on-the-status-of-web-development/index.html"
+      rel="alternate"
+      type="text/html"
+      title="Thoughts on the status of web development"
+    />
+    <published>2014-07-12T00:00:00+00:00</published>
+    <updated>2014-07-12T00:00:00+00:00</updated>
+    <id>/blog/thoughts-on-the-status-of-web-development/index.html</id>
+    <content
+      type="html"
+      xml:base="/blog/thoughts-on-the-status-of-web-development/index.html"
+      >&lt;p&gt;Web development is becoming more and more relevant every day, as private
+companies, public organisations and even individuals develop ever more
+complex (and useful) applications that manage all sorts of processes:
+&lt;a href&#x3D;&quot;http:&#x2F;&#x2F;www.theiconic.com.au&#x2F;mens-shoes&#x2F;&quot;&gt;buying a pair of shoes&lt;&#x2F;a&gt;,
+&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;www.healthcare.gov&#x2F;&quot;&gt;applying for health insurance&lt;&#x2F;a&gt; and even
+&lt;a href&#x3D;&quot;http:&#x2F;&#x2F;www.qantas.com.au&#x2F;travel&#x2F;airlines&#x2F;flight-search&#x2F;global&#x2F;en&quot;&gt;purchasing tickets&lt;&#x2F;a&gt;
+for your next international flight.&lt;&#x2F;p&gt;
+&lt;h2&gt;The exciting parts&lt;&#x2F;h2&gt;
+&lt;p&gt;In my opinion, one of the most exciting things happening in the field is the
+proliferation of incredibly powerful, cost-effective tools that are at the
+disposal of the public. I am referring to tools like cloud application platforms
+(e.g. &lt;a href&#x3D;&quot;https:&#x2F;&#x2F;www.heroku.com&#x2F;&quot;&gt;Heroku&lt;&#x2F;a&gt;), continuous integration services
+(e.g. &lt;a href&#x3D;&quot;https:&#x2F;&#x2F;travis-ci.org&#x2F;&quot;&gt;Travis&lt;&#x2F;a&gt;) and so on.&lt;&#x2F;p&gt;
+&lt;p&gt;The concepts behind these tools are not new, but the convenience and
+affordability they have brought to the community of web development is
+remarkable, usually allowing people to develop their skills free of charge
+through their &lt;em&gt;freemium&lt;&#x2F;em&gt; models.&lt;&#x2F;p&gt;
+&lt;p&gt;On top of that, there is an increasing trend to share code within the community,
+not only from individual developers but also from origanisations. It is hard to
+find a technology company not sharing interesting solutions on their
+&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;github.com&#x2F;&quot;&gt;GitHub&lt;&#x2F;a&gt; account.&lt;&#x2F;p&gt;
+&lt;p&gt;At a more technical level, how all that code comes together without conflicting
+with each other is no trivial matter, but tools like &lt;a href&#x3D;&quot;http:&#x2F;&#x2F;bower.io&#x2F;&quot;&gt;Bower&lt;&#x2F;a&gt;
+or &lt;a href&#x3D;&quot;http:&#x2F;&#x2F;enderjs.com&#x2F;&quot;&gt;Ender&lt;&#x2F;a&gt; are easing the pain that frontend dependency
+management used to be.&lt;&#x2F;p&gt;
+&lt;p&gt;The steady shift to rich client-side applications in recent years offers
+developers the opportunity to create an enhanced user experience with faster,
+more responsive sites and meaningful lightweight animations, among other things.
+Frameworks like &lt;a href&#x3D;&quot;https:&#x2F;&#x2F;angularjs.org&#x2F;&quot;&gt;AngularJS&lt;&#x2F;a&gt; or
+&lt;a href&#x3D;&quot;http:&#x2F;&#x2F;facebook.github.io&#x2F;react&#x2F;&quot;&gt;React&lt;&#x2F;a&gt; facilitate that work by providing ways
+to organise, extend, and reuse easily testable modules. All these frameworks are
+still in a relatively early stage of maturity, so it is my expectation that
+their continued improvement will drive the foundation for a better web.&lt;&#x2F;p&gt;
+&lt;h2&gt;The necessary specs&lt;&#x2F;h2&gt;
+&lt;p&gt;Moving onto not so exciting aspects of the field, web developers have already
+adopted &lt;a href&#x3D;&quot;http:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Cascading_Style_Sheets#CSS_3&quot;&gt;CSS3&lt;&#x2F;a&gt; and
+&lt;a href&#x3D;&quot;http:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;HTML5&quot;&gt;HTML5&lt;&#x2F;a&gt; as part of their daily workflow.
+AngularJS is designing version 2 using
+&lt;a href&#x3D;&quot;http:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;ECMAScript#Versions&quot;&gt;ECMAScript 6&lt;&#x2F;a&gt; that compiles
+into 5.&lt;&#x2F;p&gt;
+&lt;p&gt;However, it is worth mentioning that neither of those have final specifications:
+only &lt;a href&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;TR&#x2F;#tr_CSS&quot;&gt;a few out of over fifty CSS3&lt;&#x2F;a&gt; modules have
+been published as recommendations, and HTML5 as well as ECMAScript 6 are still
+works in progress. It is easy to get excited about the possibilities for
+innovation that new languages bring, but a greater effort and willingness to be
+involved will be needed in the coming years.&lt;&#x2F;p&gt;
+&lt;p&gt;This ensures that the reality of web development does not fall out of sync with
+the specification of the necessary standards to support it.&lt;&#x2F;p&gt;
+</content
+    >
+    <author>
+      <name>Javier Cejudo</name>
+    </author>
+  </entry>
+  <entry>
+    <title type="html">Microdata for Rich Snippets</title>
+    <link
+      href="/blog/microdata-for-rich-snippets/index.html"
+      rel="alternate"
+      type="text/html"
+      title="Microdata for Rich Snippets"
+    />
+    <published>2013-12-23T00:00:00+00:00</published>
+    <updated>2013-12-23T00:00:00+00:00</updated>
+    <id>/blog/microdata-for-rich-snippets/index.html</id>
+    <content
+      type="html"
+      xml:base="/blog/microdata-for-rich-snippets/index.html"
+      >&lt;h2&gt;The concept&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Microdata annotates the DOM with scoped name&#x2F;value pairs from custom vocabularies.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;The vocabulary we are using is &lt;a href&#x3D;&quot;http:&#x2F;&#x2F;schema.org&#x2F;&quot;&gt;Schema.org&lt;&#x2F;a&gt;, which is
+recognized by Google, Bing and Yahoo! among others.&lt;&#x2F;p&gt;
+&lt;h2&gt;The goal&lt;&#x2F;h2&gt;
+&lt;p&gt;Help search engines understand the content of a page in a semantic way.&lt;&#x2F;p&gt;
+&lt;h2&gt;Basic example&lt;&#x2F;h2&gt;
+&lt;p&gt;Pay special attention to the attributes &lt;code&gt;itemscope&lt;&#x2F;code&gt;, &lt;code&gt;itemtype&lt;&#x2F;code&gt; and &lt;code&gt;itemprop&lt;&#x2F;code&gt;,
+and to the &lt;code&gt;meta&lt;&#x2F;code&gt; tags:&lt;&#x2F;p&gt;
+&lt;pre class&#x3D;&quot;hljs&quot;&gt;&lt;code&gt;&lt;span class&#x3D;&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class&#x3D;&quot;hljs-name&quot;&gt;div&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;hljs-attr&quot;&gt;itemscope&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;hljs-attr&quot;&gt;itemtype&lt;&#x2F;span&gt;&#x3D;&lt;span class&#x3D;&quot;hljs-string&quot;&gt;&amp;quot;http:&#x2F;&#x2F;schema.org&#x2F;Product&amp;quot;&lt;&#x2F;span&gt;&amp;gt;&lt;&#x2F;span&gt;
+  &lt;span class&#x3D;&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class&#x3D;&quot;hljs-name&quot;&gt;meta&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;hljs-attr&quot;&gt;itemprop&lt;&#x2F;span&gt;&#x3D;&lt;span class&#x3D;&quot;hljs-string&quot;&gt;&amp;quot;sku&amp;quot;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;hljs-attr&quot;&gt;content&lt;&#x2F;span&gt;&#x3D;&lt;span class&#x3D;&quot;hljs-string&quot;&gt;&amp;quot;123-sku&amp;quot;&lt;&#x2F;span&gt;&amp;gt;&lt;&#x2F;span&gt;
+  &lt;span class&#x3D;&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class&#x3D;&quot;hljs-name&quot;&gt;h1&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;hljs-attr&quot;&gt;itemprop&lt;&#x2F;span&gt;&#x3D;&lt;span class&#x3D;&quot;hljs-string&quot;&gt;&amp;quot;name&amp;quot;&lt;&#x2F;span&gt;&amp;gt;&lt;&#x2F;span&gt;
+    Product title
+  &lt;span class&#x3D;&quot;hljs-tag&quot;&gt;&amp;lt;&#x2F;&lt;span class&#x3D;&quot;hljs-name&quot;&gt;h1&lt;&#x2F;span&gt;&amp;gt;&lt;&#x2F;span&gt;
+  &lt;span class&#x3D;&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class&#x3D;&quot;hljs-name&quot;&gt;span&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;hljs-attr&quot;&gt;class&lt;&#x2F;span&gt;&#x3D;&lt;span class&#x3D;&quot;hljs-string&quot;&gt;&amp;quot;brand-name&amp;quot;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;hljs-attr&quot;&gt;itemprop&lt;&#x2F;span&gt;&#x3D;&lt;span class&#x3D;&quot;hljs-string&quot;&gt;&amp;quot;brand&amp;quot;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;hljs-attr&quot;&gt;itemscope&lt;&#x2F;span&gt;
+        &lt;span class&#x3D;&quot;hljs-attr&quot;&gt;itemtype&lt;&#x2F;span&gt;&#x3D;&lt;span class&#x3D;&quot;hljs-string&quot;&gt;&amp;quot;http:&#x2F;&#x2F;schema.org&#x2F;Brand&amp;quot;&lt;&#x2F;span&gt;&amp;gt;&lt;&#x2F;span&gt;
+    &lt;span class&#x3D;&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class&#x3D;&quot;hljs-name&quot;&gt;a&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;hljs-attr&quot;&gt;itemprop&lt;&#x2F;span&gt;&#x3D;&lt;span class&#x3D;&quot;hljs-string&quot;&gt;&amp;quot;url&amp;quot;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;hljs-attr&quot;&gt;href&lt;&#x2F;span&gt;&#x3D;&lt;span class&#x3D;&quot;hljs-string&quot;&gt;&amp;quot;&#x2F;brand-1&amp;quot;&lt;&#x2F;span&gt;&amp;gt;&lt;&#x2F;span&gt;
+      &lt;span class&#x3D;&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class&#x3D;&quot;hljs-name&quot;&gt;span&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;hljs-attr&quot;&gt;itemprop&lt;&#x2F;span&gt;&#x3D;&lt;span class&#x3D;&quot;hljs-string&quot;&gt;&amp;quot;name&amp;quot;&lt;&#x2F;span&gt;&amp;gt;&lt;&#x2F;span&gt;Brand name&lt;span class&#x3D;&quot;hljs-tag&quot;&gt;&amp;lt;&#x2F;&lt;span class&#x3D;&quot;hljs-name&quot;&gt;span&lt;&#x2F;span&gt;&amp;gt;&lt;&#x2F;span&gt;
+    &lt;span class&#x3D;&quot;hljs-tag&quot;&gt;&amp;lt;&#x2F;&lt;span class&#x3D;&quot;hljs-name&quot;&gt;a&lt;&#x2F;span&gt;&amp;gt;&lt;&#x2F;span&gt;
+  &lt;span class&#x3D;&quot;hljs-tag&quot;&gt;&amp;lt;&#x2F;&lt;span class&#x3D;&quot;hljs-name&quot;&gt;span&lt;&#x2F;span&gt;&amp;gt;&lt;&#x2F;span&gt;
+  &lt;span class&#x3D;&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class&#x3D;&quot;hljs-name&quot;&gt;span&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;hljs-attr&quot;&gt;class&lt;&#x2F;span&gt;&#x3D;&lt;span class&#x3D;&quot;hljs-string&quot;&gt;&amp;quot;star-wrap&amp;quot;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;hljs-attr&quot;&gt;itemprop&lt;&#x2F;span&gt;&#x3D;&lt;span class&#x3D;&quot;hljs-string&quot;&gt;&amp;quot;aggregateRating&amp;quot;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;hljs-attr&quot;&gt;itemscope&lt;&#x2F;span&gt;
+        &lt;span class&#x3D;&quot;hljs-attr&quot;&gt;itemtype&lt;&#x2F;span&gt;&#x3D;&lt;span class&#x3D;&quot;hljs-string&quot;&gt;&amp;quot;http:&#x2F;&#x2F;schema.org&#x2F;AggregateRating&amp;quot;&lt;&#x2F;span&gt;&amp;gt;&lt;&#x2F;span&gt;
+    &lt;span class&#x3D;&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class&#x3D;&quot;hljs-name&quot;&gt;meta&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;hljs-attr&quot;&gt;itemprop&lt;&#x2F;span&gt;&#x3D;&lt;span class&#x3D;&quot;hljs-string&quot;&gt;&amp;quot;bestRating&amp;quot;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;hljs-attr&quot;&gt;content&lt;&#x2F;span&gt;&#x3D;&lt;span class&#x3D;&quot;hljs-string&quot;&gt;&amp;quot;5&amp;quot;&lt;&#x2F;span&gt;&amp;gt;&lt;&#x2F;span&gt;
+    &lt;span class&#x3D;&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class&#x3D;&quot;hljs-name&quot;&gt;meta&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;hljs-attr&quot;&gt;itemprop&lt;&#x2F;span&gt;&#x3D;&lt;span class&#x3D;&quot;hljs-string&quot;&gt;&amp;quot;ratingValue&amp;quot;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;hljs-attr&quot;&gt;content&lt;&#x2F;span&gt;&#x3D;&lt;span class&#x3D;&quot;hljs-string&quot;&gt;&amp;quot;4&amp;quot;&lt;&#x2F;span&gt;&amp;gt;&lt;&#x2F;span&gt;
+    &lt;span class&#x3D;&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class&#x3D;&quot;hljs-name&quot;&gt;meta&lt;&#x2F;span&gt;  &lt;span class&#x3D;&quot;hljs-attr&quot;&gt;content&lt;&#x2F;span&gt;&#x3D;&lt;span class&#x3D;&quot;hljs-string&quot;&gt;&amp;quot;2&amp;quot;&lt;&#x2F;span&gt;&amp;gt;&lt;&#x2F;span&gt;
+    &lt;span class&#x3D;&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class&#x3D;&quot;hljs-name&quot;&gt;span&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;hljs-attr&quot;&gt;class&lt;&#x2F;span&gt;&#x3D;&lt;span class&#x3D;&quot;hljs-string&quot;&gt;&amp;quot;fa-icon-star&amp;quot;&lt;&#x2F;span&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span class&#x3D;&quot;hljs-tag&quot;&gt;&amp;lt;&#x2F;&lt;span class&#x3D;&quot;hljs-name&quot;&gt;span&lt;&#x2F;span&gt;&amp;gt;&lt;&#x2F;span&gt;
+    &lt;span class&#x3D;&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class&#x3D;&quot;hljs-name&quot;&gt;span&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;hljs-attr&quot;&gt;class&lt;&#x2F;span&gt;&#x3D;&lt;span class&#x3D;&quot;hljs-string&quot;&gt;&amp;quot;fa-icon-star&amp;quot;&lt;&#x2F;span&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span class&#x3D;&quot;hljs-tag&quot;&gt;&amp;lt;&#x2F;&lt;span class&#x3D;&quot;hljs-name&quot;&gt;span&lt;&#x2F;span&gt;&amp;gt;&lt;&#x2F;span&gt;
+    &lt;span class&#x3D;&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class&#x3D;&quot;hljs-name&quot;&gt;span&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;hljs-attr&quot;&gt;class&lt;&#x2F;span&gt;&#x3D;&lt;span class&#x3D;&quot;hljs-string&quot;&gt;&amp;quot;fa-icon-star&amp;quot;&lt;&#x2F;span&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span class&#x3D;&quot;hljs-tag&quot;&gt;&amp;lt;&#x2F;&lt;span class&#x3D;&quot;hljs-name&quot;&gt;span&lt;&#x2F;span&gt;&amp;gt;&lt;&#x2F;span&gt;
+    &lt;span class&#x3D;&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class&#x3D;&quot;hljs-name&quot;&gt;span&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;hljs-attr&quot;&gt;class&lt;&#x2F;span&gt;&#x3D;&lt;span class&#x3D;&quot;hljs-string&quot;&gt;&amp;quot;fa-icon-star&amp;quot;&lt;&#x2F;span&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span class&#x3D;&quot;hljs-tag&quot;&gt;&amp;lt;&#x2F;&lt;span class&#x3D;&quot;hljs-name&quot;&gt;span&lt;&#x2F;span&gt;&amp;gt;&lt;&#x2F;span&gt;
+    &lt;span class&#x3D;&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class&#x3D;&quot;hljs-name&quot;&gt;span&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;hljs-attr&quot;&gt;class&lt;&#x2F;span&gt;&#x3D;&lt;span class&#x3D;&quot;hljs-string&quot;&gt;&amp;quot;fa-icon-star stop&amp;quot;&lt;&#x2F;span&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span class&#x3D;&quot;hljs-tag&quot;&gt;&amp;lt;&#x2F;&lt;span class&#x3D;&quot;hljs-name&quot;&gt;span&lt;&#x2F;span&gt;&amp;gt;&lt;&#x2F;span&gt;
+    &lt;span class&#x3D;&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class&#x3D;&quot;hljs-name&quot;&gt;span&lt;&#x2F;span&gt;&amp;gt;&lt;&#x2F;span&gt;
+      (&lt;span class&#x3D;&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class&#x3D;&quot;hljs-name&quot;&gt;span&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;hljs-attr&quot;&gt;class&lt;&#x2F;span&gt;&#x3D;&lt;span class&#x3D;&quot;hljs-string&quot;&gt;&amp;quot;rating-num stop&amp;quot;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;hljs-attr&quot;&gt;itemprop&lt;&#x2F;span&gt;&#x3D;&lt;span class&#x3D;&quot;hljs-string&quot;&gt;&amp;quot;reviewCount&amp;quot;&lt;&#x2F;span&gt;&amp;gt;&lt;&#x2F;span&gt;2&lt;span class&#x3D;&quot;hljs-tag&quot;&gt;&amp;lt;&#x2F;&lt;span class&#x3D;&quot;hljs-name&quot;&gt;span&lt;&#x2F;span&gt;&amp;gt;&lt;&#x2F;span&gt;)
+    &lt;span class&#x3D;&quot;hljs-tag&quot;&gt;&amp;lt;&#x2F;&lt;span class&#x3D;&quot;hljs-name&quot;&gt;span&lt;&#x2F;span&gt;&amp;gt;&lt;&#x2F;span&gt;
+  &lt;span class&#x3D;&quot;hljs-tag&quot;&gt;&amp;lt;&#x2F;&lt;span class&#x3D;&quot;hljs-name&quot;&gt;span&lt;&#x2F;span&gt;&amp;gt;&lt;&#x2F;span&gt;
+  ...
+&lt;span class&#x3D;&quot;hljs-tag&quot;&gt;&amp;lt;&#x2F;&lt;span class&#x3D;&quot;hljs-name&quot;&gt;div&lt;&#x2F;span&gt;&amp;gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The previous syntax describes a structure like the following:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Product&lt;&#x2F;strong&gt; [creates a new scope]
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Sku:&lt;&#x2F;em&gt; 123-sku&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;em&gt;Name:&lt;&#x2F;em&gt; Product name&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Brand&lt;&#x2F;strong&gt; [creates a new scope]
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;URL:&lt;&#x2F;em&gt; &#x2F;brand-1&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;em&gt;Name:&lt;&#x2F;em&gt; Brand name&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Aggregate rating&lt;&#x2F;strong&gt; [creates a new scope]
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Best rating:&lt;&#x2F;em&gt; 5&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;em&gt;Rating value:&lt;&#x2F;em&gt; 4&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;em&gt;Review count:&lt;&#x2F;em&gt; 2&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;...&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;All that information is extracted by search engines and they can use it to
+improve their results.&lt;&#x2F;p&gt;
+&lt;h2&gt;Things to consider when annotating data&lt;&#x2F;h2&gt;
+&lt;p&gt;While implementing the rich snippets, one challenge we might come across is
+that the data we want to annotate is either not in the DOM or it is not readily
+available to be annotated. In other cases, even if the information is readily
+available, the vocabulary requires it to be specified in a certain way. Have a
+look at the following cases:&lt;&#x2F;p&gt;
+&lt;pre class&#x3D;&quot;hljs&quot;&gt;&lt;code&gt;&lt;span class&#x3D;&quot;hljs-comment&quot;&gt;&amp;lt;!-- 1. The data is not in the DOM! --&amp;gt;&lt;&#x2F;span&gt;
+
+&lt;span class&#x3D;&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class&#x3D;&quot;hljs-name&quot;&gt;meta&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;hljs-attr&quot;&gt;itemprop&lt;&#x2F;span&gt;&#x3D;&lt;span class&#x3D;&quot;hljs-string&quot;&gt;&amp;quot;sku&amp;quot;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;hljs-attr&quot;&gt;content&lt;&#x2F;span&gt;&#x3D;&lt;span class&#x3D;&quot;hljs-string&quot;&gt;&amp;quot;123-sku&amp;quot;&lt;&#x2F;span&gt;&amp;gt;&lt;&#x2F;span&gt;
+
+&lt;span class&#x3D;&quot;hljs-comment&quot;&gt;&amp;lt;!-- 2. The data cannot be annotated as is! --&amp;gt;&lt;&#x2F;span&gt;
+
+&lt;span class&#x3D;&quot;hljs-comment&quot;&gt;&amp;lt;!--
+The rating of a particular product is represented in the DOM
+by stars that cannot be annotated.
+We need to markup the actual value (★★★★☆ → 4):
+--&amp;gt;&lt;&#x2F;span&gt;
+
+&lt;span class&#x3D;&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class&#x3D;&quot;hljs-name&quot;&gt;meta&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;hljs-attr&quot;&gt;itemprop&lt;&#x2F;span&gt;&#x3D;&lt;span class&#x3D;&quot;hljs-string&quot;&gt;&amp;quot;bestRating&amp;quot;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;hljs-attr&quot;&gt;content&lt;&#x2F;span&gt;&#x3D;&lt;span class&#x3D;&quot;hljs-string&quot;&gt;&amp;quot;5&amp;quot;&lt;&#x2F;span&gt;&amp;gt;&lt;&#x2F;span&gt;
+&lt;span class&#x3D;&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class&#x3D;&quot;hljs-name&quot;&gt;meta&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;hljs-attr&quot;&gt;itemprop&lt;&#x2F;span&gt;&#x3D;&lt;span class&#x3D;&quot;hljs-string&quot;&gt;&amp;quot;ratingValue&amp;quot;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;hljs-attr&quot;&gt;content&lt;&#x2F;span&gt;&#x3D;&lt;span class&#x3D;&quot;hljs-string&quot;&gt;&amp;quot;4&amp;quot;&lt;&#x2F;span&gt;&amp;gt;&lt;&#x2F;span&gt;
+
+&lt;span class&#x3D;&quot;hljs-comment&quot;&gt;&amp;lt;!--
+The date of a review is displayed but it is not
+machine friendly (09&#x2F;07&#x2F;2013 → 2013-07-09):
+--&amp;gt;&lt;&#x2F;span&gt;
+
+&lt;span class&#x3D;&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class&#x3D;&quot;hljs-name&quot;&gt;span&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;hljs-attr&quot;&gt;itemprop&lt;&#x2F;span&gt;&#x3D;&lt;span class&#x3D;&quot;hljs-string&quot;&gt;&amp;quot;datePublished&amp;quot;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;hljs-attr&quot;&gt;content&lt;&#x2F;span&gt;&#x3D;&lt;span class&#x3D;&quot;hljs-string&quot;&gt;&amp;quot;2013-07-09&amp;quot;&lt;&#x2F;span&gt;&amp;gt;&lt;&#x2F;span&gt;09&#x2F;07&#x2F;2013&lt;span class&#x3D;&quot;hljs-tag&quot;&gt;&amp;lt;&#x2F;&lt;span class&#x3D;&quot;hljs-name&quot;&gt;span&lt;&#x2F;span&gt;&amp;gt;&lt;&#x2F;span&gt;
+
+&lt;span class&#x3D;&quot;hljs-comment&quot;&gt;&amp;lt;!-- 3. The data needs to be specified in a certain way! --&amp;gt;&lt;&#x2F;span&gt;
+
+&lt;span class&#x3D;&quot;hljs-comment&quot;&gt;&amp;lt;!--
+Stock availability is shown in the DOM as &amp;#x27;In Stock&amp;#x27;,
+but the vocabulary needs it to be specified as follows
+--&amp;gt;&lt;&#x2F;span&gt;
+
+&lt;span class&#x3D;&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class&#x3D;&quot;hljs-name&quot;&gt;link&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;hljs-attr&quot;&gt;itemprop&lt;&#x2F;span&gt;&#x3D;&lt;span class&#x3D;&quot;hljs-string&quot;&gt;&amp;quot;availability&amp;quot;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;hljs-attr&quot;&gt;href&lt;&#x2F;span&gt;&#x3D;&lt;span class&#x3D;&quot;hljs-string&quot;&gt;&amp;quot;http:&#x2F;&#x2F;schema.org&#x2F;InStock&amp;quot;&lt;&#x2F;span&gt; &#x2F;&amp;gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The documentation is clear about which properties need to be declared as above
+and the options available.&lt;&#x2F;p&gt;
+&lt;h2&gt;Things to consider when writing new HTML, applying CSS styles or simply moving things around&lt;&#x2F;h2&gt;
+&lt;h3&gt;Wrap semantic blocks&lt;&#x2F;h3&gt;
+&lt;p&gt;To make it easy for new HTML to be annotated, it is good practice to wrap any
+piece of information into its own element. A problem that we had when annotating
+the product page was that the only common parent of the product information and
+its reviews was the &lt;code&gt;body&lt;&#x2F;code&gt;, so we needed to wrap all the information in the
+product page into its own &lt;code&gt;div&lt;&#x2F;code&gt;, which of course created a huge diff in Git.
+The same applies to small pieces of information: if you need to display the
+brand of a product and the product name, wrap each one into its own element:&lt;&#x2F;p&gt;
+&lt;pre class&#x3D;&quot;hljs&quot;&gt;&lt;code&gt;&lt;span class&#x3D;&quot;hljs-comment&quot;&gt;&amp;lt;!--Suboptimal  --&amp;gt;&lt;&#x2F;span&gt;
+&lt;span class&#x3D;&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class&#x3D;&quot;hljs-name&quot;&gt;div&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;hljs-attr&quot;&gt;class&lt;&#x2F;span&gt;&#x3D;&lt;span class&#x3D;&quot;hljs-string&quot;&gt;&amp;quot;product-details&amp;quot;&lt;&#x2F;span&gt;&amp;gt;&lt;&#x2F;span&gt;
+  Brand name - Product name
+&lt;span class&#x3D;&quot;hljs-tag&quot;&gt;&amp;lt;&#x2F;&lt;span class&#x3D;&quot;hljs-name&quot;&gt;div&lt;&#x2F;span&gt;&amp;gt;&lt;&#x2F;span&gt;
+
+&lt;span class&#x3D;&quot;hljs-comment&quot;&gt;&amp;lt;!--Better  --&amp;gt;&lt;&#x2F;span&gt;
+&lt;span class&#x3D;&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class&#x3D;&quot;hljs-name&quot;&gt;div&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;hljs-attr&quot;&gt;class&lt;&#x2F;span&gt;&#x3D;&lt;span class&#x3D;&quot;hljs-string&quot;&gt;&amp;quot;product-details&amp;quot;&lt;&#x2F;span&gt;&amp;gt;&lt;&#x2F;span&gt;
+  &lt;span class&#x3D;&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class&#x3D;&quot;hljs-name&quot;&gt;span&lt;&#x2F;span&gt;&amp;gt;&lt;&#x2F;span&gt;Brand name&lt;span class&#x3D;&quot;hljs-tag&quot;&gt;&amp;lt;&#x2F;&lt;span class&#x3D;&quot;hljs-name&quot;&gt;span&lt;&#x2F;span&gt;&amp;gt;&lt;&#x2F;span&gt; - &lt;span class&#x3D;&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class&#x3D;&quot;hljs-name&quot;&gt;span&lt;&#x2F;span&gt;&amp;gt;&lt;&#x2F;span&gt;Product name&lt;span class&#x3D;&quot;hljs-tag&quot;&gt;&amp;lt;&#x2F;&lt;span class&#x3D;&quot;hljs-name&quot;&gt;span&lt;&#x2F;span&gt;&amp;gt;&lt;&#x2F;span&gt;
+&lt;span class&#x3D;&quot;hljs-tag&quot;&gt;&amp;lt;&#x2F;&lt;span class&#x3D;&quot;hljs-name&quot;&gt;div&lt;&#x2F;span&gt;&amp;gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3&gt;Apply CSS styles via HTML classes&lt;&#x2F;h3&gt;
+&lt;p&gt;Continuing with the example above, if we need to apply styling to the brand
+name, it is better to do it through classes as this way is more robust than
+applying styles through elements.&lt;&#x2F;p&gt;
+&lt;h3&gt;Moving things around&lt;&#x2F;h3&gt;
+&lt;p&gt;As the microdata lives within the HTML, changes in the markup of a page can
+easily break pre-existing annotations. To prevent that, if a block containing
+microdata needs to be refactored, make sure to use the
+&lt;a href&#x3D;&quot;http:&#x2F;&#x2F;www.google.com&#x2F;webmasters&#x2F;tools&#x2F;richsnippets&quot;&gt;Google Structured Data Testing Tool&lt;&#x2F;a&gt;
+to check that the microdata is still valid or needs to be rearranged as well
+(e.g. maybe a property that belongs to a particular scope has been moved out
+of that scope).&lt;&#x2F;p&gt;
+&lt;h2&gt;References&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;http:&#x2F;&#x2F;schema.org&#x2F;docs&#x2F;gs.html&quot;&gt;Getting started with schema.org&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;http:&#x2F;&#x2F;diveintohtml5.info&#x2F;extensibility.html#what-is-microdata&quot;&gt;Dive Into HTML5: What is microdata?&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;http:&#x2F;&#x2F;www.whatwg.org&#x2F;specs&#x2F;web-apps&#x2F;current-work&#x2F;multipage&#x2F;microdata.html#microdata&quot;&gt;Living Standard - Microdata&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;http:&#x2F;&#x2F;www.google.com&#x2F;webmasters&#x2F;tools&#x2F;richsnippets&quot;&gt;Google Structured Data Testing Tool&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content
+    >
+    <author>
+      <name>Javier Cejudo</name>
+    </author>
+  </entry>
+  <entry>
+    <title type="html">CSS limitations on IE</title>
+    <link
+      href="/blog/css-limitations-on-ie/index.html"
+      rel="alternate"
+      type="text/html"
+      title="CSS limitations on IE"
+    />
+    <published>2013-12-15T00:00:00+00:00</published>
+    <updated>2013-12-15T00:00:00+00:00</updated>
+    <id>/blog/css-limitations-on-ie/index.html</id>
+    <content
+      type="html"
+      xml:base="/blog/css-limitations-on-ie/index.html"
+      >&lt;p&gt;If you search for CSS limitations on IE, you will see sites where they state
+that IE has a size limitation for CSS files, but in fact that is not the case:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;All style rules after the first 4,095 selectors are not applied. This is limited per sheet, not globally.&lt;&#x2F;li&gt;
+&lt;li&gt;All style tags after the first 31 style tags are not applied.&lt;&#x2F;li&gt;
+&lt;li&gt;On pages that uses the &lt;code&gt;@import&lt;&#x2F;code&gt; rule to continously import external style sheets that import other style sheets, style sheets that are more than three levels deep are ignored.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Here is a
+&lt;a href&#x3D;&quot;http:&#x2F;&#x2F;demos.telerik.com&#x2F;testcases&#x2F;4095issues.html&quot;&gt;live demo for the first case&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;IE 10 has limitations of the same nature but it&#39;d take a lot more effort to
+reach them:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;A sheet may contain up to 65534 rules.&lt;&#x2F;li&gt;
+&lt;li&gt;A document may use up to 4095 stylesheets.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;@import&lt;&#x2F;code&gt; nesting is limited to 4095 levels (due to the 4095 stylesheet limit).&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;If you think you might having issues due to the 4,095 constraint, you can take
+your CSS and roughly count the number of selectors following the following
+formula,&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Selectors ≈ Braces + Commas&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;where &lt;code&gt;Braces&lt;&#x2F;code&gt; is the number of braces (&lt;code&gt;{&lt;&#x2F;code&gt;), and &lt;code&gt;Commas&lt;&#x2F;code&gt; is the number of
+commas (&lt;code&gt;,&lt;&#x2F;code&gt;). The formula is an approximation because there are commas inside
+some CSS rules. A better option is to run your stylesheets through
+&lt;a href&#x3D;&quot;http:&#x2F;&#x2F;cssstats.com&quot;&gt;CSS Stats&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;A quick solution is to simply separate the CSS file(s) with problems into
+smaller pieces.&lt;&#x2F;p&gt;
+&lt;p&gt;There is a
+&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;github.com&#x2F;makandra&#x2F;ie-css-test&quot;&gt;github project with tests for this&lt;&#x2F;a&gt;
+you can check out that confirms that the size is not the issue:&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;There are some rumors on the interwebs about IE breaking at a file size around roughly 288 kilobytes.&lt;&#x2F;p&gt;
+&lt;p&gt;We generate a CSS file of about 500 kb (when built statically).&lt;&#x2F;p&gt;
+&lt;p&gt;Tested with IE 8 and 9, none broke. People were probably just hitting the selector limit.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h2&gt;References&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;http:&#x2F;&#x2F;support.microsoft.com&#x2F;kb&#x2F;262161&quot;&gt;Microsoft Support&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;http:&#x2F;&#x2F;blogs.msdn.com&#x2F;b&#x2F;ieinternals&#x2F;archive&#x2F;2011&#x2F;05&#x2F;14&#x2F;10164546.aspx&quot;&gt;IEInternals&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content
+    >
+    <author>
+      <name>Javier Cejudo</name>
+    </author>
+  </entry>
+</feed>
+
